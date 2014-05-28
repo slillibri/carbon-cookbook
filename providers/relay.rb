@@ -1,6 +1,8 @@
 use_inline_resources
 
 action :create do
+  run_context.include_recipe "runit"
+
   directory new_resource.graphite_home + "/conf" do
     action :create
     owner new_resource.user
@@ -42,7 +44,7 @@ action :create do
                 :relay_rules => new_resource.relay_rules
               })
     notifies :restart, "runit_service[carbon-relay-" + new_resource.relay_instance + "]",:delayed
-  end
+  end  
   runit_service "carbon-relay-" + new_resource.relay_instance  do
     cookbook "carbon"
     run_template_name "carbon-relay"
