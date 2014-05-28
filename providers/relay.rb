@@ -12,7 +12,7 @@ action :create do
     source new_resource.relay_template_source
     owner new_resource.user
     group new_resource.group
-    cookbook new_resource.cookbook
+    cookbook "carbon"
     mode 0655
     variables(
               :options => new_resource.options,
@@ -36,7 +36,7 @@ action :create do
     source new_resource.relay_rules_template_source
     owner  new_resource.user
     group new_resource.group
-    cookbook new_resource.cookbook
+    cookbook "carbon"
     mode 0644
     variables({
                 :relay_rules => new_resource.relay_rules
@@ -44,7 +44,7 @@ action :create do
     notifies :restart, "runit_service[carbon-relay-" + new_resource.relay_instance + "]",:delayed
   end
   runit_service "carbon-relay-" + new_resource.relay_instance  do
-    cookbook new_resource.cookbook
+    cookbook "carbon"
     run_template_name "carbon-relay"
     default_logger true
     options({
