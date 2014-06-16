@@ -1,6 +1,8 @@
 use_inline_resources
 
 action :create do
+  run_context.include_recipe "runit"
+  
   %w{conf storage storage/log}.each do |ab|
     directory new_resource.graphite_home + "/" + ab do
       owner new_resource.user
