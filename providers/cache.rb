@@ -66,7 +66,7 @@ action :create do
     notifies :restart, "runit_service[carbon-cache-" + new_resource.carbon_instance + "]",:delayed
   end
   runit_service "carbon-cache-" + new_resource.carbon_instance do
-    cookbook new_resource.cookbook
+    cookbook "carbon"
     run_template_name "carbon-cache"
     log_template_name "carbon-cache"
     default_logger true
