@@ -68,6 +68,7 @@ action :create do
   runit_service "carbon-cache-" + new_resource.carbon_instance do
     cookbook new_resource.cookbook
     run_template_name "carbon-cache"
+    log_template_name "carbon-cache"
     default_logger true
     options({
                 :carbon_instance => new_resource.carbon_instance,
