@@ -69,7 +69,6 @@ action :create do
     cookbook "carbon"
     run_template_name "carbon-cache"
     log_template_name "carbon-cache"
-    default_logger true
     options({
                 :carbon_instance => new_resource.carbon_instance,
                 :graphite_home => new_resource.graphite_home,
