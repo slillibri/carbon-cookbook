@@ -12,7 +12,7 @@ attribute :user, :kind_of => String, :default => "graphite"
 attribute :group, :kind_of => String, :default => "graphite"
 attribute :max_cache_size, :kind_of => String, :default => "inf"
 attribute :max_updates_per_second, :kind_of => Fixnum, :default => 5000
-attribute :max_creates_per_minute, :kind_of => Fixnum, :default => 100
+attribute :max_creates_per_minute, :kind_of => String, :default => "100"
 attribute :line_listner, :kind_of => Hash, :default => {"line_receiver_interface" => "0.0.0.0", "line_receiver_port" => 2003 }
 attribute :pickle_listner, :kind_of => Hash, :default => {"pickle_receiver_interface" => "0.0.0.0", "pickle_receiver_port" => 2004 }
 attribute :udp_listner, :kind_of => Hash, :default => {"enable_udp_listner" => "False", "udp_receiver_interface" => "0.0.0.0", "udp_receiver_port" => 2003 }
